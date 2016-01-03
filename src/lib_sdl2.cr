@@ -1,3 +1,5 @@
+require "./enums"
+
 @[Link("SDL2")]
 lib LibSDL2
   SWSURFACE = 0x00000000_u32
@@ -161,7 +163,6 @@ lib LibSDL2
   end
 
   alias RWops = Void*
-
   alias Point = Void*
 
   type TimerCallback = (UInt32, Void*) -> UInt32
@@ -173,7 +174,6 @@ lib LibSDL2
   fun get_error = SDL_GetError() : UInt8*
   fun quit = SDL_Quit() : Void
   # fun set_video_mode = SDL_SetVideoMode(width : Int32, height : Int32, bpp : Int32, flags : UInt32) : Surface*
-  # fun load_bmp = SDL_LoadBMP(file : UInt8*) : Surface*
   fun create_window = SDL_CreateWindow(title : UInt8*, x : Int32, y : Int32, width : Int32, height : Int32, flags : SDL2::Window::Flags) : Window*
   fun destroy_window = SDL_DestroyWindow(Window*) : Void
   fun delay = SDL_Delay(ms : UInt32) : Void
